@@ -1,12 +1,16 @@
 import React from 'react';
 import {Box} from "@mui/material";
+import Elements from "../elements/Elements";
 
-const Navbar:React.FC = () => {
+const Sidebar:React.FC = () => {
     return (
-        <Box p={2} height={60} bgcolor={"navy"} sx={{width:'100%'}}>
-
+        <Box width={320} sx={{height:'calc(100vh - 60px)',borderRight:'1px solid #80808026'}}>
+            <Box p={2}  bgcolor={"skyblue"} sx={{width:'100%'}}>
+                Elements
+            </Box>
+            <Elements/>
         </Box>
     );
 };
 
-export default Navbar;
+export default Sidebar;
