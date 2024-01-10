@@ -1,17 +1,20 @@
-import React from 'react';
-import {DragDropContext, Droppable} from "react-beautiful-dnd";
+import React, {useState} from 'react';
+import {ItemInterface, ITEMS} from "./Items";
+import {DragDropContext, Droppable, DropResult} from "react-beautiful-dnd";
+import Elements from "../elements/Elements";
 
-const BuilderArea = () => {
+
+const BuilderArea = ({ items }: { items: ItemInterface[] }) => {
     return (
         <div>
-            <DragDropContext onDragEnd={handleDragEnd}>
                 <Droppable droppableId="droppable">
                     {(provided, snapshot) => (
                         <div {...provided.droppableProps} ref={provided.innerRef}>
+                            <Elements items={items} />
+                            {provided.placeholder}
                         </div>
-                        )}
+                    )}
                 </Droppable>
-            </DragDropContext>
         </div>
     );
 };
